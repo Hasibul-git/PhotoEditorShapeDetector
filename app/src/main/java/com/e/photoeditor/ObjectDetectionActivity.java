@@ -101,7 +101,7 @@ public class ObjectDetectionActivity extends AppCompatActivity implements Camera
             Mat circles = new Mat(bitmap.getWidth(), bitmap.getHeight(), CvType.CV_8UC1);
 
             Imgproc.blur(input, input, new Size(3, 3), new Point(2, 2));
-            Imgproc.HoughCircles(input, circles, Imgproc.CV_HOUGH_GRADIENT, 2, 100, 100, 90, 0, 0);
+            Imgproc.HoughCircles(input, circles, Imgproc.CV_HOUGH_GRADIENT, 2, 100, 100, 90, 0, 1000);
             //Imgproc.GaussianBlur(input, input, new Size(3, 3), 5, 10);
             //Canny(input, circles, 80, 100 * 0.5, 3, true);
 
@@ -112,7 +112,7 @@ public class ObjectDetectionActivity extends AppCompatActivity implements Camera
             //Log.i("Circles", String.valueOf("size: " + circles.cols()) + ", " + String.valueOf(circles.rows()));
 
             if (circles.cols() > 0) {
-                for (int x=0; x < numberOfCircles; x++ ) { //Math.min(circles.cols(), 500)
+                for (int x=0; x < Math.min(numberOfCircles,100); x++ ) { //Math.min(circles.cols(), 500)
                     double circleVec[] = circles.get(0, x);
 
                     if (circleVec == null) {
