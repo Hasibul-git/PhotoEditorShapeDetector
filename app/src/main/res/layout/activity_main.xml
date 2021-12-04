@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/black"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnOpen"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@drawable/camera"/>
+
+            <TextView
+                android:text="Camera"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_width="55dp"
+                android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnGallery"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@drawable/gallery"/>
+
+            <TextView
+                android:text="Gallery"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCrop"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@drawable/crop"/>
+
+            <TextView
+                android:text="Crop"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnTool"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:background="@drawable/tools"/>
+
+            <TextView
+                android:text="Tools"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
