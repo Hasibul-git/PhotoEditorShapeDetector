@@ -53,12 +53,21 @@ public class MainActivity extends AppCompatActivity {
         if (getIntent().getExtras() != null){
             imageUri = (Uri) getIntent().getParcelableExtra("ImgUri");
             imageView.setImageURI(imageUri);
+
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{
-                    Manifest.permission.CAMERA
+                    Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE
             },100);
         }
 
@@ -85,13 +94,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnTools.setOnClickListener(view -> {
-//            Intent in1 = new Intent(this, ObjectDetectionActivity.class);
-//            startActivity(in1);
+            Intent in1 = new Intent(this, DetectActivity.class);
+            startActivity(in1);
 
-            sentBitmapFile();
+//            sentBitmapFile();
         });
     }
-
+// move on
     private void uploadImage(){
             Intent gallery = new Intent();
             gallery.setType("image/*");
@@ -103,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
         CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).start(this);
     }
 
+    // move on
     private void sentBitmapFile() {
-
         try{
             //Write file
             String filename = "bitmap.png";
@@ -165,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
         return Uri.parse(path);
     }
 
+    //move on
     private void imagesavetomyphonegallery() {
 
         BitmapDrawable draw = (BitmapDrawable) imageView.getDrawable();

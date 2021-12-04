@@ -56,6 +56,7 @@ public class ImageCroper extends AppCompatActivity {
         });
     }
 
+    //move on
     private void imagesavetomyphonegallery() {
 
         BitmapDrawable draw = (BitmapDrawable) imageView.getDrawable();
