@@ -1,4 +1,4 @@
-package com.e.photoeditor;
+package com.e.photoeditor.BaseClass;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,23 +7,22 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.e.photoeditor.R;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import ServicesClass.ServicesClass;
 
 public class ImageCroper extends AppCompatActivity {
 
@@ -48,42 +47,12 @@ public class ImageCroper extends AppCompatActivity {
 
         btnDone.setOnClickListener(view -> {
             //CropImage.activity(imgUri).start(this);
-            imagesavetomyphonegallery();
+            ServicesClass.imagesavetomyphonegallery(imageView, "SaveImages");
 
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("ImgUri", imgUri);
             startActivity(intent);
         });
-    }
-
-    //move on
-    private void imagesavetomyphonegallery() {
-
-        BitmapDrawable draw = (BitmapDrawable) imageView.getDrawable();
-        Bitmap bitmap = draw.getBitmap();
-
-        FileOutputStream outStream = null;
-        File sdCard = Environment.getExternalStorageDirectory();
-        File dir = new File(sdCard.getAbsolutePath() + "/SaveImages");
-        dir.mkdirs();
-        String fileName = String.format("%d.jpg", System.currentTimeMillis());
-        File outFile = new File(dir, fileName);
-        try {
-            outStream = new FileOutputStream(outFile);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outStream);
-        try {
-            outStream.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            outStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override

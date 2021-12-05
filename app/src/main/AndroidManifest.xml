@@ -19,16 +19,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PhotoEditor">
         <activity
-            android:name=".DetectActivity"
+            android:name=".BaseClass.DetectActivity"
             android:exported="true" />
         <activity
-            android:name=".ObjectDetectionActivity"
+            android:name=".BaseClass.ObjectDetectionActivity"
             android:exported="true" />
         <activity
-            android:name=".ImageCroper"
+            android:name=".BaseClass.ImageCroper"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".BaseClass.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

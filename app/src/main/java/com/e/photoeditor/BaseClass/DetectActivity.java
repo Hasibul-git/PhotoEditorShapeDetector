@@ -1,4 +1,7 @@
-package com.e.photoeditor;
+package com.e.photoeditor.BaseClass;
+
+import static ServicesClass.ServicesClass.angle;
+import static ServicesClass.ServicesClass.setLabel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.widget.Toast;
+
+import com.e.photoeditor.R;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
@@ -25,6 +30,8 @@ import org.opencv.imgproc.Imgproc;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import ServicesClass.ServicesClass;
 
 public class DetectActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
 
@@ -58,7 +65,7 @@ public class DetectActivity extends AppCompatActivity implements CameraBridgeVie
             public void onManagerConnected(int status) {
                 switch (status) {
                     case LoaderCallbackInterface.SUCCESS:
-                        Log.v("aashari-log", "Loader interface success");
+                        Log.v("Rec", "Loader interface success");
                         bwIMG = new Mat();
                         dsIMG = new Mat();
                         hsvIMG = new Mat();
@@ -173,24 +180,5 @@ public class DetectActivity extends AppCompatActivity implements CameraBridgeVie
         }
     }
 
-    // move on
-    private static double angle(Point pt1, Point pt2, Point pt0) {
-        double dx1 = pt1.x - pt0.x;
-        double dy1 = pt1.y - pt0.y;
-        double dx2 = pt2.x - pt0.x;
-        double dy2 = pt2.y - pt0.y;
-        return (dx1 * dx2 + dy1 * dy2) / Math.sqrt((dx1 * dx1 + dy1 * dy1) * (dx2 * dx2 + dy2 * dy2) + 1e-10);
-    }
 
-    // move on
-    private void setLabel(Mat im, String label, MatOfPoint contour) {
-        int fontface = Core.FONT_HERSHEY_SIMPLEX;
-        double scale = 3;//0.4;
-        int thickness = 3;//1;
-        int[] baseline = new int[1];
-        Size text = Imgproc.getTextSize(label, fontface, scale, thickness, baseline);
-        Rect r = Imgproc.boundingRect(contour);
-        Point pt = new Point(r.x + ((r.width - text.width) / 2),r.y + ((r.height + text.height) / 2));
-        Imgproc.putText(im, label, pt, fontface, scale, new Scalar(255, 0, 0), thickness);
-    }
 }
