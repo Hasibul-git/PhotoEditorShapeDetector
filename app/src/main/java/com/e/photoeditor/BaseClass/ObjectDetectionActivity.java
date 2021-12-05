@@ -29,12 +29,41 @@ public class ObjectDetectionActivity extends AppCompatActivity implements Camera
     ImageView imageView;
     Bitmap bitmap = null;
 
+//    public static final String TAG = "src";
+//
+//    static {
+//        if (!OpenCVLoader.initDebug()) {
+//            Log.wtf(TAG, "OpenCV failed to load!");
+//        }
+//    }
+//
+//    private JavaCameraView cameraView;
+//    CameraBridgeViewBase cameraBridgeViewBase;
+//
+//    private BaseLoaderCallback loaderCallback = new BaseLoaderCallback(this) {
+//        @Override
+//        public void onManagerConnected(int status) {
+//            switch (status) {
+//                case BaseLoaderCallback.SUCCESS:
+//                    Log.i(TAG, "OpenCV loaded successfully");
+//                    cameraBridgeViewBase.enableView();
+//                    break;
+//                default:
+//                    super.onManagerConnected(status);
+//            }
+//        }
+//    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_object_detection);
 
         imageView = findViewById(R.id.imageView);
+
+//        cameraBridgeViewBase = findViewById(R.id.cameraView);
+//        cameraBridgeViewBase.setVisibility(SurfaceView.VISIBLE);
+//        cameraBridgeViewBase.setCvCameraViewListener(this);
 
         if(OpenCVLoader.initDebug()){
             Log.d("Open_CV", "OpenCv Status True");
