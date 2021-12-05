@@ -111,10 +111,10 @@ public class ObjectDetectionActivity extends AppCompatActivity {
 
             imageView.setImageBitmap(bitmap);
 
-            Toast.makeText(this,"Number of Circle Detected is "+centercount,Toast.LENGTH_LONG);
+            Toast.makeText(this,"Number of Circle Detected is "+centercount,Toast.LENGTH_LONG).show();
 
         }catch (Exception e){
-            Toast.makeText(this,"Detection is not possible due to poor Image quality!!",Toast.LENGTH_LONG);
+            Toast.makeText(this,"Detection is not possible due to poor Image quality!!",Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
