@@ -77,7 +77,10 @@ public class ObjectDetectionActivity extends AppCompatActivity {
             Mat circles = new Mat(bitmap.getWidth(), bitmap.getHeight(), CvType.CV_8UC1);
 
             Imgproc.blur(input, input, new Size(3, 3), new Point(2, 2));
+            Log.e("Blur",input+"");
+
             Imgproc.HoughCircles(input, circles, Imgproc.CV_HOUGH_GRADIENT, 2, 100, 100, 90, 0, 1000);
+            Log.e("Circle_check",circles+"");
 
             int numberOfCircles = (circles.rows() == 0) ? 0 : circles.cols();
 

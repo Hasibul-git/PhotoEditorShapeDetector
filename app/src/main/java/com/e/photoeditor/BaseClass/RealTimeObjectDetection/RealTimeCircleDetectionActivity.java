@@ -69,8 +69,12 @@ public class RealTimeCircleDetectionActivity extends AppCompatActivity implement
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         Mat input = inputFrame.gray();
         Mat circles = new Mat();
+
         Imgproc.blur(input, input, new Size(7, 7), new Point(2, 2));
+        Log.d("Blur",input+"");
+
         Imgproc.HoughCircles(input, circles, Imgproc.CV_HOUGH_GRADIENT, 2, 100, 100, 90, 0, 1000);
+        Log.d("Circle_check",circles+"");
 
         Log.i("SRC", String.valueOf("size: " + circles.cols()) + ", " + String.valueOf(circles.rows()));
 
