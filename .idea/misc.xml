@@ -3,10 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hasibul/AndroidStudioProjects/PhotoEditor/app/src/main/res/drawable/camera.xml" value="0.38177083333333334" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/PhotoEditor/app/src/main/res/layout/activity_detect.xml" value="0.365625" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/PhotoEditor/app/src/main/res/layout/activity_image_croper.xml" value="0.365625" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/PhotoEditor/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Hasibul/AndroidStudioProjects/PhotoEditor/app/src/main/res/layout/activity_object_detection.xml" value="0.365625" />
+        <entry key="..\:/Users/Hasibul/AndroidStudioProjects/PhotoEditor/app/src/main/res/layout/activity_real_time_circle_detection.xml" value="0.20625" />
       </map>
     </option>
   </component>

@@ -6,23 +6,14 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.e.photoeditor.BaseClass.ServiceClass.ServicesClass;
 import com.e.photoeditor.R;
 import com.theartofdev.edmodo.cropper.CropImage;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import ServicesClass.ServicesClass;
 
 public class ImageCroper extends AppCompatActivity {
 

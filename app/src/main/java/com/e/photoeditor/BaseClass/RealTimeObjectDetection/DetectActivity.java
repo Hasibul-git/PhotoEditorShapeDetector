@@ -1,7 +1,7 @@
-package com.e.photoeditor.BaseClass;
+package com.e.photoeditor.BaseClass.RealTimeObjectDetection;
 
-import static ServicesClass.ServicesClass.angle;
-import static ServicesClass.ServicesClass.setLabel;
+import static com.e.photoeditor.BaseClass.ServiceClass.ServicesClass.angle;
+import static com.e.photoeditor.BaseClass.ServiceClass.ServicesClass.setLabel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,21 +17,16 @@ import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.JavaCameraView;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfPoint;
 import org.opencv.core.MatOfPoint2f;
 import org.opencv.core.Point;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import ServicesClass.ServicesClass;
 
 public class DetectActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
 
@@ -52,7 +47,6 @@ public class DetectActivity extends AppCompatActivity implements CameraBridgeVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detect);
 
-        //initialize treshold
         threshold = 100;
 
         cameraBridgeViewBase = (JavaCameraView) findViewById(R.id.cameraViewer);
@@ -146,6 +140,7 @@ public class DetectActivity extends AppCompatActivity implements CameraBridgeVie
                 }
             }
         }
+
         return dst;
     }
 
