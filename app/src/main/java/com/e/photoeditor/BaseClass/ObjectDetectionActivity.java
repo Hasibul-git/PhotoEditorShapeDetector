@@ -84,7 +84,7 @@ public class ObjectDetectionActivity extends AppCompatActivity {
             Log.i("numberOfCircles", numberOfCircles+"");
 
             if (circles.cols() > 0) {
-                for (int x=0; x < Math.min(numberOfCircles,100); x++ ) { //Math.min(circles.cols(), 500)
+                for (int x=0; x < Math.min(circles.cols(),100); x++ ) { //Math.min(circles.cols(), 500)
                     double circleVec[] = circles.get(0, x);
 
                     if (circleVec == null) {
